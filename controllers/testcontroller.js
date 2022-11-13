@@ -3,7 +3,7 @@ const { paragraphs } = require("../models/mongoindex");
 const Goods = db2.paragraphs;
 
 
-
+// req 받
 const test = async (req, res) => {
 
     console.log (req.body);

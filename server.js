@@ -13,20 +13,14 @@ mongoose.connect('mongodb://idcurp:IDC4urp!@jasonchoi.dev:27017/idclab',
         console.log('connected to MongoDB')
     });
 
-
-
 //routers
+app.use(express.json());
 const router = require('./routes/routes.js');
 app.use('/api/', router);
 
-//routes2 (mongodb)
-const router2 = require('./routes/routertest.js');
-app.use(express.json());
-app.use('/api/', router2);
 
 // middleware
 app.use(cors());
-app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 //testing api

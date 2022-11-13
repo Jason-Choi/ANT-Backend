@@ -2,11 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 
-const paragraphSchema = Schema({
+const paragraphSchema = mongoose.Schema({
     type: {
         type: String,
         enum: ['overview', 'describe', 'compare', 'trend', null],
-        required : true
     },
     phrases: [{
         type: {

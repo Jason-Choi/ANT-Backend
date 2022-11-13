@@ -1,6 +1,9 @@
 const db = require("../models");
-
 const Product = db.products;
+
+const db2 = require("../models");
+const { paragraphs } = require("../models/mongoindex");
+const data = db2.paragraphs;
 
 // get all products
 const getallproducts = async (req, res) => {
@@ -11,7 +14,6 @@ const getallproducts = async (req, res) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.status(200).send(products);
 }
-
 
 // get product by id
 const getproductbyid = async (req, res) => {
@@ -64,12 +66,45 @@ const pickrandomid = async (req, res) => {
 }
 
 
+
+//////////////////////////////////////////
+const test = async (req, res) => {
+    console.log (req.body);
+    const result = req.body;
+    res.send(result);
+}
+
+// req body 값들을 mongodb에 저장하기
+const testdb = async (req, res) => {
+    console.log (req.body);
+    const result = req.body;
+
+    // mongodb에 저장, 추가요소 추가하기
+    const data = new paragraphs({
+        type : result.type,
+        phrases : result.phrases,
+    });
+
+    data.save();
+    res.send(result.phrases);
+}
+
+
+// mongodb 전체 조회
+const showall = async (req, res) => {
+    let products = await paragraphs.find();
+    res.status(200).send(products);
+}
+
+
 module.exports = {
     getallproducts,
     getproductbyid,
     updateproductbyid,
     deleteproductbyid,
     pickrandomid,
+    test,
+    testdb,
+    showall
 }
 
-// id title data raw_caption axis_title is_annotated 정도만 사용할듯

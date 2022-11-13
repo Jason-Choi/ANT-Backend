@@ -10,7 +10,8 @@ const paragraphSchema = Schema({
         type: Number,
         select: false
     },
-    caption: [
+    caption: {
+        sentence: [
             {
                 sentencetype: {
                     type: String,
@@ -27,6 +28,10 @@ const paragraphSchema = Schema({
                 }]
             }
         ]
+<<<<<<< HEAD
+=======
+    }
+>>>>>>> origin/main
 });
 
 const db2 = {};

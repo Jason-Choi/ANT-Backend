@@ -96,6 +96,12 @@ const showall = async (req, res) => {
     res.status(200).send(products);
 }
 
+// mongodb 전체 삭제
+const deleteall = async (req, res) => {
+    let products = await paragraphs.deleteMany();
+    res.status(200).send(products);
+}
+
 
 module.exports = {
     getallproducts,
@@ -105,6 +111,7 @@ module.exports = {
     pickrandomid,
     test,
     testdb,
-    showall
+    showall,
+    deleteall
 }
 

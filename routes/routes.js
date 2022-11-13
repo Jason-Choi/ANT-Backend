@@ -18,5 +18,8 @@ router.post('/testdb', Controller.testdb);
 
 router.get('/showall', Controller.showall);
 
+// deleteall
+router.get('/deleteall', Controller.deleteall);
+
 
 module.exports = router;

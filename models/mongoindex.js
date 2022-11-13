@@ -3,55 +3,33 @@ const { STRING } = require('sequelize');
 const Schema = mongoose.Schema;
 
 const paragraphSchema = Schema({
-    sentence: {
-        type: String,
-        enum: ['overview', 'describe', 'compare', 'trend', null],
-    },
-    phrases: [{
-        type: {
-            type: String,
-            enum: ['key', 'series', 'value', null], 
-            required : true
-        },
-        source: String,
-        target: String
-    }],
-
+    id: { type: Number },
+    table: { type: String },
+    unit: { type: String },
     __v: {
         type: Number,
         select: false
+    },
+    caption: {
+        sentence: [
+            {
+                sentencetype: {
+                    type: String,
+                    enum: ['overview', 'describe', 'compare', 'trend', null],
+                },
+                phrases: [{
+                    phrasetype: {
+                        type: String,
+                        enum: ['key', 'series', 'value', null],
+                        required: true
+                    },
+                    source: String,
+                    target: String
+                }]
+            }
+        ]
     }
 });
-
-
-
-    // phrases: [{
-    //     type: {
-    //         type: String,
-    //         enum: ['key', 'series', 'value', null], 
-    //         required : true
-    //     },
-    //     source: String,
-    //     target: String
-    // }],
-
-
-// const paragraphSchema = mongoose.Schema({
-//     statista_index: {
-//         type: String,
-//         required: true,
-//     },
-//     title: {
-//         type: String,
-//         required: true,
-//     },
-
-//     // ignore versionkey
-//     __v: {
-//         type: Number,
-//         select: false
-//     }
-// });
 
 const db2 = {};
 db2.mongoose = mongoose;

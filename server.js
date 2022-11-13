@@ -6,7 +6,6 @@ var corOptions = {
     origin: "http://localhost:8080"
 };
 
-
 //routers
 const router = require('./routes/routes.js');
 app.use('/api/', router);

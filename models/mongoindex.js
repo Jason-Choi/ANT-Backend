@@ -10,12 +10,12 @@ const paragraphSchema = mongoose.Schema({
         type: String,
         required: true,
     },
-        versionKey: false 
-    
+    // ignore versionkey
+    __v: {
+        type: Number,
+        select: false
+    }
 });
-
-//port 3001번 이용중
-
 
 const db2 = {};
 db2.mongoose = mongoose;

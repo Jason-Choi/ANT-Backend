@@ -14,6 +14,8 @@ const test = async (req, res) => {
 const testdb = async (req, res) => {
     console.log (req.body);
     const result = req.body;
+
+    // mongodb에 저장, 추가요소 추가하기
     const data = new paragraphs({
         statista_index: result.statista_index,
         title: result.title,

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const paragraphSchema = mongoose.Schema({
+const paragraphSchema = Schema({
     statista_index: {
         type: String,
         required: true,

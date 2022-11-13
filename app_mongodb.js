@@ -9,7 +9,17 @@ app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 const mongoose = require('mongoose')
 
 mongoose.connect('mongodb://idcurp:IDC4urp!@jasonchoi.dev:27017/idclab',
+
     err => {
         if(err) throw err;
         console.log('connected to MongoDB')
     });
+
+//routes
+const router = require('./routes/routertest.js');
+app.use('/api/', router);
+
+//test api
+app.get("/", (req, res) => {
+    res.json({ message: "Welcome to my application." });
+});

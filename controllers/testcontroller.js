@@ -16,16 +16,11 @@ const testdb = async (req, res) => {
     const result = req.body;
 
     // mongodb에 저장, 추가요소 추가하기
-
     const data = new paragraphs({
         type : result.type,
         phrases : result.phrases,
     });
 
-    // const data = new paragraphs({
-    //     statista_index: result.statista_index,
-    //     title: result.title,
-    // });
     data.save();
     res.send(result.phrases);
 }

@@ -14,6 +14,8 @@ const test = async (req, res) => {
 const testdb = async (req, res) => {
     console.log (req.body);
     const result = req.body;
+
+    // mongodb에 저장, 추가요소 추가하기
     const data = new paragraphs({
         statista_index: result.statista_index,
         title: result.title,
@@ -21,6 +23,10 @@ const testdb = async (req, res) => {
     data.save();
     res.send(result.title);
 }
+
+// body의 statista_index를 mongodb에 저장하기
+//const testdb3 = async (req, res) => {
+
 
 // mongodb 전체 조회
 const getallproducts = async (req, res) => {

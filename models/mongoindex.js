@@ -28,10 +28,7 @@ const paragraphSchema = Schema({
                 }]
             }
         ]
-<<<<<<< HEAD
-=======
     }
->>>>>>> origin/main
 });
 
 const db2 = {};

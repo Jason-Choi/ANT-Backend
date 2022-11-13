@@ -1,12 +1,11 @@
 const mongoose = require('mongoose');
+const { STRING } = require('sequelize');
 const Schema = mongoose.Schema;
 
-
 const paragraphSchema = Schema({
-    type: {
+    sentence: {
         type: String,
         enum: ['overview', 'describe', 'compare', 'trend', null],
-        required : true
     },
     phrases: [{
         type: {
@@ -24,6 +23,17 @@ const paragraphSchema = Schema({
     }
 });
 
+
+
+    // phrases: [{
+    //     type: {
+    //         type: String,
+    //         enum: ['key', 'series', 'value', null], 
+    //         required : true
+    //     },
+    //     source: String,
+    //     target: String
+    // }],
 
 
 // const paragraphSchema = mongoose.Schema({

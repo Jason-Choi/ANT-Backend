@@ -2,7 +2,8 @@ const dbConfig = require("../config/dbConfig.js");
 
 module.exports = (sequelize, DataTypes) => {
     const Product = sequelize.define("" + dbConfig.TABLE, {
-        id: {
+        // id -> statista_index
+        statista_index: {
             type: DataTypes.INTEGER,
             primaryKey: true,
             //autoIncrement: true
@@ -22,11 +23,20 @@ module.exports = (sequelize, DataTypes) => {
         is_annotated: {
             type: DataTypes.INTEGER
         },
+        raw_caption: {
+            type: DataTypes.TEXT
+        },
+        axis_title: {
+            type: DataTypes.TEXT
+        }
+    
     },
     // sequalize table 생성 시 복수형으로 s가 붙는 문제 해결
     {   underscored: true,
         freezeTableName: true,
-        tableName: "corpus_1"
+        //tableName: "corpus_1"
+        tableName:"final_dataset",
+
     });
     
     return Product;

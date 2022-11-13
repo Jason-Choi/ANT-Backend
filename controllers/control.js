@@ -2,11 +2,10 @@ const db = require("../models");
 
 const Product = db.products;
 
-
 // get all products
 const getallproducts = async (req, res) => {
     let products = await Product.findAll({
-        attributes: ['id', 'title', 'data'],
+        attributes: ['statista_index', 'title', 'data', 'raw_caption', 'axis_title'],
     }
     );
     res.status(200).send(products);
@@ -14,17 +13,17 @@ const getallproducts = async (req, res) => {
 
 
 // get product by id
-const getProductById = async (req, res) => {
-    let id = req.params.id;
+const getproductbyid = async (req, res) => {
+    let statista_index = req.params.id;
     let product = await Product.findOne({
-        attributes: ['id', 'title', 'data'],
-        where: { id: id },
+        attributes: ['statista_index', 'title', 'data', 'raw_caption', 'axis_title'],
+        where: { statista_index : statista_index},
     });
     res.status(200).send(product);
 }
 
-//update product by id
-const updateProductById = async (req, res) => {
+//update product by id // 필요 x
+const updateproductbyid = async (req, res) => {
     let id = req.params.id;
     let product = await Product.update({
         title: req.body.title,
@@ -37,24 +36,24 @@ const updateProductById = async (req, res) => {
 }
 
 //delete product by id
-const deleteProductById = async (req, res) => {
+const deleteproductbyid = async (req, res) => {
     let id = req.params.id;
     let product = await Product.destroy({
-        where: { id: id },
+        where: { statista_index : statista_index },
     });
     res.status(200).send("product deleted");
 }
 
 //pick random id from db if is_annotated == 0 and get products by that id
-const pickRandomId = async (req, res) => {
-    let id = await Product.findAll({
-        attributes: ['id'],
+const pickrandomid = async (req, res) => {
+    let statista_index = await Product.findAll({
+        attributes: ['statista_index'],
         where: { is_annotated: 0 },
     });
-    let randomId = id[Math.floor(Math.random() * id.length)];
+    let randomId = statista_index[Math.floor(Math.random() * statista_index.length)];
     let product = await Product.findOne({
-        attributes: ['id', 'title', 'data'],
-        where: { id: randomId.id },
+        attributes: ['statista_index', 'title', 'data','raw_caption','axis_title'],
+        where: { statista_index : randomId.statista_index },
     });
     res.status(200).send(product);
 }
@@ -62,8 +61,10 @@ const pickRandomId = async (req, res) => {
 
 module.exports = {
     getallproducts,
-    getProductById,
-    updateProductById,
-    deleteProductById,
-    pickRandomId,
+    getproductbyid,
+    updateproductbyid,
+    deleteproductbyid,
+    pickrandomid,
 }
+
+// id title data raw_caption axis_title is_annotated 정도만 사용할듯

@@ -13,9 +13,7 @@ mongoose.connect('mongodb://idcurp:IDC4urp!@jasonchoi.dev:27017/idclab',
         console.log('connected to MongoDB')
     });
 
-var corOptions = {
-    origin: "http://localhost:8080"
-};
+
 
 //routers
 const router = require('./routes/routes.js');
@@ -27,7 +25,7 @@ app.use(express.json());
 app.use('/api/', router2);
 
 // middleware
-app.use(cors(corOptions));
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

@@ -1,9 +1,8 @@
 const db2 = require("../models");
 const { paragraphs } = require("../models/mongoindex");
-const Goods = db2.paragraphs;
+const data = db2.paragraphs;
 
 
-// req 받
 const test = async (req, res) => {
 
     console.log (req.body);
@@ -11,6 +10,27 @@ const test = async (req, res) => {
     res.send(result);
 }
 
+// req body 값들을 mongodb에 저장하기
+const testdb = async (req, res) => {
+    console.log (req.body);
+    const result = req.body;
+    const data = new paragraphs({
+        statista_index: result.statista_index,
+        title: result.title,
+    });
+    data.save();
+    res.send(result.title);
+}
+
+// mongodb 전체 조회
+const getallproducts = async (req, res) => {
+    let products = await paragraphs.find();
+    res.status(200).send(products);
+}
+
+
 module.exports = {
-    test
+    test,
+    testdb,
+    getallproducts,
 }

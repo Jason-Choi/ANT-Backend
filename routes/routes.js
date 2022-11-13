@@ -12,6 +12,3 @@ router.delete("/delproduct/:id", productController.deleteproductbyid);
 router.get("/randomproduct", productController.pickrandomid);
 
 module.exports = router;
-
-
-

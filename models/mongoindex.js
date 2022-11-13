@@ -1,21 +1,48 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+
+
 const paragraphSchema = mongoose.Schema({
-    statista_index: {
+    type: {
         type: String,
-        required: true,
+        enum: ['overview', 'describe', 'compare', 'trend', null],
+        required : true
     },
-    title: {
-        type: String,
-        required: true,
-    },
-    // ignore versionkey
+    phrases: [{
+        type: {
+            type: String,
+            enum: ['key', 'series', 'value', null], 
+            required : true
+        },
+        source: String,
+        target: String
+    }],
+
     __v: {
         type: Number,
         select: false
     }
 });
+
+
+
+// const paragraphSchema = mongoose.Schema({
+//     statista_index: {
+//         type: String,
+//         required: true,
+//     },
+//     title: {
+//         type: String,
+//         required: true,
+//     },
+
+//     // ignore versionkey
+//     __v: {
+//         type: Number,
+//         select: false
+//     }
+// });
 
 const db2 = {};
 db2.mongoose = mongoose;

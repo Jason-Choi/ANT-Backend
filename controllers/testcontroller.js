@@ -22,6 +22,10 @@ const testdb = async (req, res) => {
     res.send(result.title);
 }
 
+// body의 statista_index를 mongodb에 저장하기
+//const testdb3 = async (req, res) => {
+
+
 // mongodb 전체 조회
 const getallproducts = async (req, res) => {
     let products = await paragraphs.find();

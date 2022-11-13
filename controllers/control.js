@@ -79,12 +79,12 @@ const testdb = async (req, res) => {
     console.log (req.body);
     const result = req.body;
 
-    // mongodb에 저장, 추가요소 추가하기
-    const data = new paragraphs({
-        type : result.type,
-        phrases : result.phrases,
-    });
-
+    // // mongodb에 저장, 추가요소 추가하기
+    // const data = new paragraphs({
+    //     type : result.type,
+    //     phrases : result.phrases,
+    // });
+    const data = new paragraphs(result);
     data.save();
     res.send(result.phrases);
 }

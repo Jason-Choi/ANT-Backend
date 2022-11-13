@@ -1,10 +1,15 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+<<<<<<< HEAD
 
 
 const paragraphSchema = mongoose.Schema({
     type: {
+=======
+const paragraphSchema = Schema({
+    statista_index: {
+>>>>>>> origin/main
         type: String,
         enum: ['overview', 'describe', 'compare', 'trend', null],
         required : true

@@ -8,6 +8,7 @@ const getallproducts = async (req, res) => {
         attributes: ['statista_index', 'title', 'data', 'raw_caption', 'axis_title'],
     }
     );
+    res.header("Access-Control-Allow-Origin", "*");
     res.status(200).send(products);
 }
 
@@ -19,6 +20,7 @@ const getproductbyid = async (req, res) => {
         attributes: ['statista_index', 'title', 'data', 'raw_caption', 'axis_title'],
         where: { statista_index : statista_index},
     });
+    res.header("Access-Control-Allow-Origin", "*");
     res.status(200).send(product);
 }
 
@@ -32,6 +34,7 @@ const updateproductbyid = async (req, res) => {
     }, {
         where: { id: id },
     });
+    res.header("Access-Control-Allow-Origin", "*");
     res.status(200).send(product);
 }
 
@@ -41,6 +44,7 @@ const deleteproductbyid = async (req, res) => {
     let product = await Product.destroy({
         where: { statista_index : statista_index },
     });
+    res.header("Access-Control-Allow-Origin", "*");
     res.status(200).send("product deleted");
 }
 
@@ -55,6 +59,7 @@ const pickrandomid = async (req, res) => {
         attributes: ['statista_index', 'title', 'data','raw_caption','axis_title'],
         where: { statista_index : randomId.statista_index },
     });
+    res.header("Access-Control-Allow-Origin", "*");
     res.status(200).send(product);
 }
 

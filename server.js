@@ -3,15 +3,13 @@ const cors = require('cors');
 const app = express();
 
 var corOptions = {
-    origin: "http://localhost:8081"
+    origin: "http://localhost:8080"
 };
 
 
 //routers
 const router = require('./routes/routes.js');
 app.use('/api/', router);
-
-
 
 // middleware
 app.use(cors(corOptions));
@@ -25,7 +23,7 @@ app.get("/", (req, res) => {
 
 
 //port 3001번 이용중
-const PORT = process.env.PORT || 3002;
+const PORT = process.env.PORT || 3001;
 
 
 //server

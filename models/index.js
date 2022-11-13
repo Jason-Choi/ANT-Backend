@@ -2,7 +2,6 @@ const dbConfig = require("../config/dbConfig.js");
 
 const {Sequelize, DataTypes} = require('sequelize');
 
-
 const sequalize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
     host: dbConfig.HOST,
     port: dbConfig.PORT,
@@ -41,5 +40,6 @@ db.sequalize.sync({force : false})
         console.log('Drop and Resync with { force: true }');
     }
     );
+
 
 module.exports = db;

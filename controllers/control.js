@@ -4,7 +4,7 @@ const Product = db.products;
 
 
 // get all products
-const getAllProducts = async (req, res) => {
+const getallproducts = async (req, res) => {
     let products = await Product.findAll({
         attributes: ['id', 'title', 'data'],
     }
@@ -60,9 +60,8 @@ const pickRandomId = async (req, res) => {
 }
 
 
-
 module.exports = {
-    getAllProducts,
+    getallproducts,
     getProductById,
     updateProductById,
     deleteProductById,

@@ -1,7 +1,7 @@
 const productController = require("../controllers/control.js");
 const router = require("express").Router();
 
-router.get("/allProducts", productController.getAllProducts);
+router.get("/allProducts", productController.getallproducts);
 
 router.get("/getProduct/:id", productController.getProductById);
 
@@ -12,3 +12,6 @@ router.delete("/delProduct/:id", productController.deleteProductById);
 router.get("/randomProduct", productController.pickRandomId);
 
 module.exports = router;
+
+
+

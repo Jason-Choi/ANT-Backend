@@ -1,17 +1,3 @@
-// type Paragraph = Sentence[]
-
-// interface Sentence = {
-// 	type: "overview" | "describe" | "compare" | "trend" | null,
-// 	phrases: phrase[],
-// }
-
-// interface phrase = {
-// 	type: "key" | "series" | "value" | null,
-// 	source: string,
-// 	target: string
-// } 
-
-
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 

@@ -1,7 +1,9 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const port = 3000;
+
+//port 3001번 이용중
+const PORT = process.env.PORT || 3001;
 const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://idcurp:IDC4urp!@jasonchoi.dev:27017/idclab',
@@ -35,8 +37,6 @@ app.get("/", (req, res) => {
 });
 
 
-//port 3001번 이용중
-const PORT = process.env.PORT || 3001;
 
 
 //server

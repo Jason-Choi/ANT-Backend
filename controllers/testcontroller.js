@@ -1,28 +1,14 @@
-const db = require("../models");
-const Goods = db.mongoindex;
+const db2 = require("../models");
+const { paragraphs } = require("../models/mongoindex");
+const Goods = db2.paragraphs;
 
 
-
-// router.post('/test', async (req, res) => {
-//     const { id, name, price } = req.body;
-
-//     isExist = await Goods.find({ id });
-//     if (isExist.length == 0) {
-//     await Goods.create({ id, name, price });
-//     }
-//     res.send({ result: "success" });
-// });
 
 const test = async (req, res) => {
 
-    const { id, name, price } = req.body;
-
-    isExist = await Goods.find({ id });
-    if (isExist.length == 0) {
-    await Goods.create({ id, name, price });
-    }
-    res.send({ result: "success" });
-
+    console.log (req.body);
+    const result = req.body;
+    res.send(result);
 }
 
 module.exports = {

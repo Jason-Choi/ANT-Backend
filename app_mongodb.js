@@ -1,7 +1,6 @@
 const express = require('express')
 const app = express()
 const port = 3000
-const router = express.Router();
 
 app.get('/', (req, res) => res.send('Hello World'))
 
@@ -17,8 +16,9 @@ mongoose.connect('mongodb://idcurp:IDC4urp!@jasonchoi.dev:27017/idclab',
     });
 
 //routes
-const router = require('./routes/routertest.js');
-app.use('/api/', router);
+const router2 = require('./routes/routertest.js');
+app.use(express.json());
+app.use('/api/', router2);
 
 //test api
 app.get("/", (req, res) => {

@@ -29,3 +29,9 @@ const paragraphSchema = new Schema({
         },  
     }]
 });
+
+const db2 = {};
+db2.mongoose = mongoose;
+db2.paragraphs = mongoose.model("paragraphs", paragraphSchema);
+
+module.exports = db2;
